@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace AccuracyTester
 {
@@ -15,6 +16,26 @@ namespace AccuracyTester
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void getWord_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void givenWord_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timedMode_Click(object sender, EventArgs e)
+        {
+            TimedMode timedMode = new TimedMode();
+
+            if (timedMode.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+              
+            }
         }
     }
 }
