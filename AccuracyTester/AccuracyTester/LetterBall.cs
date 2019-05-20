@@ -18,10 +18,15 @@ namespace AccuracyTester
 
         private int radius;
 
-        private static readonly Color[] COLORS = { Color.Orange, Color.Blue, Color.Green };
+        private static readonly Color[] COLORS = { Color.Green, Color.Green, Color.Green };
         private int colorIndex;
         private bool hit;
         private int points;
+
+        private string takeLetter;
+        public string createWord;
+
+        public string genString;
 
         public LetterBall(Point position, Random random)
         {
@@ -30,6 +35,8 @@ namespace AccuracyTester
             this.color = COLORS[colorIndex];
             this.radius = random.Next(40, 100);
             this.hit = false;
+
+            genString = GenerateLetter().ToString();
         }
 
         public char GenerateLetter()
@@ -40,6 +47,8 @@ namespace AccuracyTester
             return (char)letter;
         }
 
+       
+
         public LetterBall(Point position, int radius, Color color)
         {
             this.position = position;
@@ -48,17 +57,24 @@ namespace AccuracyTester
             this.hit = false;
         }
 
+       
+
         public int Hit(Point position)
         {
             hit = distance(this.position, position) <= radius * radius;
             points = 0;
+
             if (hit)
             {
                 color = Color.Red;
-                points = (colorIndex + 1) * 5;         
+                points = (colorIndex + 1) * 5;
+                createWord += takeLetter;
+                
             }
             return points;
         }
+
+      
 
         public bool Colide(LetterBall ball)
         {
@@ -78,9 +94,11 @@ namespace AccuracyTester
             Brush brush = new SolidBrush(color);
             g.FillEllipse(brush, position.X - radius, position.Y - radius, 2 * radius, 2 * radius);
 
-            font = new Font("Ariel",12);
+      
+            font = new Font("Ariel",20);
             Brush frontcolor = new SolidBrush(Color.Black);
-            g.DrawString("420",font ,frontcolor, position.X-radius/10, position.X-radius/10);
+
+            g.DrawString(genString,font ,frontcolor, position.X, position.Y);
             
             brush.Dispose();
         }
@@ -93,7 +111,7 @@ namespace AccuracyTester
             }
             colorIndex = (colorIndex + 1) % 3;
             color = COLORS[colorIndex];
-            radius -= 5;
+            radius -= 2;
             return radius <= 10;
         }
     }

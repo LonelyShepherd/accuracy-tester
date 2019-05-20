@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.getWord = new System.Windows.Forms.Button();
             this.givenWord = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // getWord
-            // 
-            this.getWord.Location = new System.Drawing.Point(351, 419);
-            this.getWord.Name = "getWord";
-            this.getWord.Size = new System.Drawing.Size(180, 61);
-            this.getWord.TabIndex = 0;
-            this.getWord.Text = "GET WORD TEST";
-            this.getWord.UseVisualStyleBackColor = true;
-            this.getWord.Click += new System.EventHandler(this.getWord_Click);
             // 
             // givenWord
             // 
             this.givenWord.AutoSize = true;
-            this.givenWord.Location = new System.Drawing.Point(402, 388);
+            this.givenWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.givenWord.Location = new System.Drawing.Point(331, 9);
             this.givenWord.Name = "givenWord";
-            this.givenWord.Size = new System.Drawing.Size(78, 13);
+            this.givenWord.Size = new System.Drawing.Size(192, 31);
             this.givenWord.TabIndex = 1;
             this.givenWord.Text = "GIVEN WORD";
             // 
@@ -57,7 +47,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 492);
             this.Controls.Add(this.givenWord);
-            this.Controls.Add(this.getWord);
             this.Name = "TimedMode";
             this.Text = "TimedMode";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TimedMode_Paint);
@@ -68,8 +57,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button getWord;
         private System.Windows.Forms.Label givenWord;
     }
 }

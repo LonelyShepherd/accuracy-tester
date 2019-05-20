@@ -18,6 +18,7 @@ namespace AccuracyTester
         private int counter;
         private string FileName;
 
+
         public TimedMode()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace AccuracyTester
             counter = 0;
             timer.Start();
             DoubleBuffered = true;
+            givenWord.Text = GenerateWord();
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -42,7 +44,9 @@ namespace AccuracyTester
 
         private void getWord_Click(object sender, EventArgs e)
         {
-            givenWord.Text = GenerateWord();
+            
+                
+            
 
         }
 
