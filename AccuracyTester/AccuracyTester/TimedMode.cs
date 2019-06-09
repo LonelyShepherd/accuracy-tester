@@ -14,6 +14,8 @@ namespace AccuracyTester
     private string word;
     private int points;
     private DateTime now;
+    private int clicks;
+    private int hits;
 
     public TimedMode()
     {
@@ -21,7 +23,7 @@ namespace AccuracyTester
       game = new Game(Width, Height);
       
       timer = new Timer();
-      timer.Interval = 100;
+      timer.Interval = 65;
       timer.Tick += new EventHandler(timer_Tick);
 
       timeTimer = new Timer();
@@ -29,10 +31,12 @@ namespace AccuracyTester
       timeTimer.Tick += new EventHandler(elapsed);
 
       generationTimer = new Timer();
-      generationTimer.Interval = 600;
+      generationTimer.Interval = 500;
       generationTimer.Tick += new EventHandler(generate);
 
       points = 0;
+      clicks = 0;
+      hits = 0;
 
       now = DateTime.Now;
 
@@ -68,19 +72,21 @@ namespace AccuracyTester
     {
     }
 
+    void ShowStats()
+    {
+      panel1.Visible = true;
+      label10.Text = label4.Text;
+      label7.Text = label2.Text;
+      label13.Text = string.Format("{0}/{1}", hits, clicks);
+      label14.Text = string.Format("{0:0.##}%", (hits * 100) / (clicks * 1.0));
+    }
+
     public void SelectCorrect(Graphics g)
     {
       if (!givenWord.Text.StartsWith(word))
       {
-        label2.Text = "00:00";
-        now = DateTime.Now;
+        ShowStats();
 
-        word = "";
-        GenerateWord();
-        points = 0;
-        label4.Text = "0";
-
-        Invalidate();
         return;
       }
 
@@ -89,6 +95,9 @@ namespace AccuracyTester
       g.FillRectangle(brush, givenWord.Location.X + 5, givenWord.Location.Y, size.Width - 9, givenWord.Height);
 
       brush.Dispose();
+
+      if (givenWord.Text == word)
+        ShowStats();
     }
 
     void GenerateWord()
@@ -114,6 +123,8 @@ namespace AccuracyTester
     {
       if (e.Button == MouseButtons.Left)
       {
+        clicks++;
+
         foreach (var it in game.balls)
         {
           it.Hit(e.Location);
@@ -121,8 +132,13 @@ namespace AccuracyTester
           if (it.hit)
           {
             word += it.letter;
-            points += it.points;
-            label4.Text = points.ToString();
+
+            if (givenWord.Text.StartsWith(word))
+            {
+              hits++;
+              points += it.points;
+              label4.Text = points.ToString();
+            }
           }
         }
       }
@@ -133,6 +149,31 @@ namespace AccuracyTester
       }
 
       Invalidate(true);
+    }
+
+    private void Restart()
+    {
+      label2.Text = "00:00";
+      now = DateTime.Now;
+
+      word = "";
+      GenerateWord();
+      points = hits = clicks = 0;
+      label4.Text = "0";
+
+      panel1.Visible = false;
+
+      Invalidate();
+    }
+
+    private void Button1_Click(object sender, EventArgs e)
+    {
+      Restart();
+    }
+
+    private void Button2_Click(object sender, EventArgs e)
+    {
+      Close();
     }
   }
 }

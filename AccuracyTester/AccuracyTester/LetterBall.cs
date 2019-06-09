@@ -28,9 +28,26 @@ namespace AccuracyTester
       colorIndex = random.Next(COLORS.Length);
       color = COLORS[colorIndex];
       radius = random.Next(40, 81);
+      AssignPoints();
+
       hit = false;
 
       genString = GenerateLetter().ToString();
+    }
+
+    void AssignPoints()
+    {
+      if (radius > 70 && radius <= 80)
+        points = 2;
+
+      if (radius > 60 && radius <= 70)
+        points = 3;
+
+      if (radius > 50 && radius <= 60)
+        points = 4;
+
+      if (radius > 40 && radius <= 50)
+        points = 5;
     }
 
     public char GenerateLetter()
@@ -54,10 +71,7 @@ namespace AccuracyTester
       hit = distance(this.position, position) <= radius * radius;
 
       if (hit)
-      {
         color = Color.Red;
-        points = (colorIndex + 1) * 5;
-      }
     }
 
     public bool Colide(LetterBall ball)
@@ -80,7 +94,7 @@ namespace AccuracyTester
 
 
       font = new Font("Ariel", 20);
-      Brush fontcolor = new SolidBrush(Color.Black);
+      Brush fontcolor = new SolidBrush(Color.White);
       SizeF size = g.MeasureString(genString, font);
       g.DrawString(genString, font, fontcolor, position.X - size.Width / 2, position.Y - size.Height / 2);
 

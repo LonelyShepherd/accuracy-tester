@@ -19,9 +19,9 @@ namespace AccuracyTester
     {
       this.width = width;
       this.height = height;
-      this.random = new Random();
-      this.balls = new List<LetterBall>();
-      this.points = 0;
+      random = new Random();
+      balls = new List<LetterBall>();
+      points = 0;
     }
 
     public void Generate()
