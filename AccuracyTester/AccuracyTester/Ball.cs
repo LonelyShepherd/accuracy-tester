@@ -4,35 +4,36 @@ using System.Drawing;
 namespace AccuracyTester
 {
   [Serializable]
-  public class LetterBall
+  public class Ball
   {
-    private Font font;
-
     private Point position;
 
     private Color color;
 
     private int radius;
 
-    private static readonly Color[] COLORS = { Color.Green, Color.Green, Color.Green };
-    private int colorIndex;
     public bool hit;
     public int points;
     public char letter;
 
     public string genString;
 
-    public LetterBall(Point position, Random random)
+    public Ball(Point position, Random random)
     {
       this.position = position;
-      colorIndex = random.Next(COLORS.Length);
-      color = COLORS[colorIndex];
+      color = Color.Green;
       radius = random.Next(40, 81);
       AssignPoints();
 
       hit = false;
+    }
 
-      genString = GenerateLetter().ToString();
+    public Ball(Point position, int radius, Color color)
+    {
+      this.position = position;
+      this.color = color;
+      this.radius = radius;
+      hit = false;
     }
 
     void AssignPoints()
@@ -50,22 +51,6 @@ namespace AccuracyTester
         points = 5;
     }
 
-    public char GenerateLetter()
-    {
-      Random random = new Random();
-      letter = (char)random.Next(97, 123);
-
-      return letter;
-    }
-
-    public LetterBall(Point position, int radius, Color color)
-    {
-      this.position = position;
-      this.color = color;
-      this.radius = radius;
-      hit = false;
-    }
-
     public void Hit(Point position)
     {
       hit = distance(this.position, position) <= radius * radius;
@@ -74,7 +59,7 @@ namespace AccuracyTester
         color = Color.Red;
     }
 
-    public bool Colide(LetterBall ball)
+    public bool Colide(Ball ball)
     {
       int dist = distance(position, ball.position);
       return (radius + ball.radius) * (radius + ball.radius) >= dist;
@@ -82,19 +67,13 @@ namespace AccuracyTester
 
     private int distance(Point p1, Point p2)
     {
-      return (p1.X - p2.X) * (p1.X - p2.X)
-          + (p1.Y - p2.Y) * (p1.Y - p2.Y);
+      return (p1.X - p2.X) * (p1.X - p2.X) + (p1.Y - p2.Y) * (p1.Y - p2.Y);
     }
 
-    public void Draw(Graphics g)
+    public virtual void Draw(Graphics g)
     {
       Brush brush = new SolidBrush(color);
       g.FillEllipse(brush, position.X - radius, position.Y - radius, 2 * radius, 2 * radius);
-
-      font = new Font("Ariel", 20);
-      Brush fontcolor = new SolidBrush(Color.White);
-      SizeF size = g.MeasureString(genString, font);
-      g.DrawString(genString, font, fontcolor, position.X - size.Width / 2, position.Y - size.Height / 2);
 
       brush.Dispose();
     }
@@ -105,8 +84,7 @@ namespace AccuracyTester
       {
         return true;
       }
-      colorIndex = (colorIndex + 1) % 3;
-      color = COLORS[colorIndex];
+
       radius -= 2;
       return radius <= 10;
     }

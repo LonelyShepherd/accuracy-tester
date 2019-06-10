@@ -37,5 +37,12 @@ namespace AccuracyTester
               
             }
         }
+
+    private void FreeMode_Click(object sender, EventArgs e)
+    {
+      Default def = new Default();
+
+      def.ShowDialog();
     }
+  }
 }
