@@ -34,7 +34,8 @@ namespace AccuracyTester
     {
       InitializeComponent();
 
-      dificulty = target = duration = 0;
+      target = 1;
+      dificulty = duration = 0;
 
       game = new DefaultGame(Width, Height);
 
@@ -52,12 +53,6 @@ namespace AccuracyTester
       points = 0;
       clicks = 0;
       hits = 0;
-
-      //now = DateTime.Now;
-
-      timer.Start();
-      //timeTimer.Start();
-      // generationTimer.Start();
 
       DoubleBuffered = true;
     }
@@ -120,6 +115,7 @@ namespace AccuracyTester
     void StartGame()
     {
       panel5.Visible = false;
+      panel1.Visible = false;
 
       switch (dificulty)
       {
@@ -155,6 +151,7 @@ namespace AccuracyTester
           break;
       }
 
+      timer.Start();
       timeTimer.Start();
       generationTimer.Start();
     }
@@ -170,18 +167,115 @@ namespace AccuracyTester
       var elapsed = timeDuration - now;
       now = DateTime.Now;
 
+      var calculated = elapsed.Minutes * 60 + elapsed.Seconds;
+
+      if (calculated < 1)
+      {
+        timer.Stop();
+        timeTimer.Stop();
+        generationTimer.Stop();
+        ShowStats();
+      }
+
       label8.Text = (elapsed.Minutes * 60 + elapsed.Seconds).ToString();
+    }
+
+    void ShowStats()
+    {
+      panel5.Visible = true;
+      panel1.Visible = true;
+
+      label11.Text = dificulties[dificulty].ToString();
+      label15.Text = targets[target].ToString();
+      label13.Text = durations[duration].ToString();
+      label21.Text = points.ToString();
+      label28.Text = hits.ToString();
+      label29.Text = clicks.ToString();
+      label30.Text = game.targets.ToString();
+      label17.Text = string.Format("{0:0.##}%", !double.IsNaN((hits * 100) / (clicks * 1.0)) ? (hits * 100) / (clicks * 1.0) : 0);
+      label26.Text = string.Format("{0:0.##}%", (hits * 100) / (game.targets * 1.0));
     }
 
     void generate(object sender, EventArgs e)
     {
-      game.Generate();
+      game.Generate(target);
     }
 
     private void Default_Paint(object sender, PaintEventArgs e)
     {
       e.Graphics.Clear(Color.White);
       game.Draw(e.Graphics);
+    }
+
+    private void Default_MouseClick(object sender, MouseEventArgs e)
+    {
+      if (e.Button == MouseButtons.Left)
+      {
+        clicks++;
+
+        foreach (var it in game.balls)
+        {
+          it.Hit(e.Location);
+
+          if (it.hit)
+          {
+            hits++;
+            points += it.points;
+            label10.Text = points.ToString();
+          }
+        }
+      }
+
+      else if (e.Button == MouseButtons.Right)
+      {
+        game.Bomb(e.Location);
+      }
+
+      Invalidate(true);
+    }
+
+    private void Button15_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void Button9_Click(object sender, EventArgs e)
+    {
+      Previous(ref dificulty, dificulties, label11);
+    }
+
+    private void Button8_Click(object sender, EventArgs e)
+    {
+      Next(ref dificulty, dificulties, label11);
+    }
+
+    private void Button13_Click(object sender, EventArgs e)
+    {
+      Previous(ref target, targets, label15);
+    }
+
+    private void Button12_Click(object sender, EventArgs e)
+    {
+      Next(ref target, targets, label15);
+    }
+
+    private void Button11_Click(object sender, EventArgs e)
+    {
+      Previous(ref duration, durations, label13);
+    }
+
+    private void Button10_Click(object sender, EventArgs e)
+    {
+      Next(ref duration, durations, label13);
+    }
+
+    private void Button14_Click(object sender, EventArgs e)
+    {
+      hits = clicks = points = game.targets = 0;
+      label21.Text = label10.Text = "0";
+      game.balls.Clear();
+
+      StartGame();
     }
   }
 }

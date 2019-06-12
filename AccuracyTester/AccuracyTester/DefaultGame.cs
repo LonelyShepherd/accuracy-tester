@@ -13,6 +13,7 @@ namespace AccuracyTester
     private int height;
     private Random random;
     private Ball bomb;
+    public int targets;
 
     public DefaultGame(int width, int height)
     {
@@ -20,12 +21,37 @@ namespace AccuracyTester
       this.height = height;
       random = new Random();
       balls = new List<Ball>();
+      targets = 0;
     }
 
-    public void Generate()
+    public void Generate(int target)
     {
       Point position = new Point(random.Next(100, width - 100), random.Next(100, height - 100));
-      var ball = new Ball(position, random);
+
+      int min, max;
+
+      switch (target)
+      {
+        case 0:
+          min = 40;
+          max = 50;
+          break;
+        case 1:
+          min = 50;
+          max = 60;
+          break;
+        case 2:
+          min = 60;
+          max = 70;
+          break;
+        case 3:
+        default:
+          min = 70;
+          max = 80;
+          break;
+      }
+
+      var ball = new Ball(position, random, min, max);
       bool colide = false;
 
       foreach (var b in balls)
@@ -33,9 +59,14 @@ namespace AccuracyTester
           colide = true;
 
       if (colide)
-        Generate();
+      {
+        Generate(target);
+      }
       else
+      {
         balls.Add(ball);
+        targets++;
+      }
     }
 
     public void Bomb(Point point)

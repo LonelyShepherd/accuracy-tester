@@ -41,7 +41,7 @@ namespace AccuracyTester
       now = DateTime.Now;
 
       word = "";
-
+      
       timer.Start();
       timeTimer.Start();
       generationTimer.Start();
@@ -74,6 +74,10 @@ namespace AccuracyTester
 
     void ShowStats()
     {
+      timer.Stop();
+      timeTimer.Stop();
+      generationTimer.Stop();
+
       panel1.Visible = true;
       label10.Text = label4.Text;
       label7.Text = label2.Text;
@@ -86,7 +90,6 @@ namespace AccuracyTester
       if (!givenWord.Text.StartsWith(word))
       {
         ShowStats();
-
         return;
       }
 
@@ -161,7 +164,13 @@ namespace AccuracyTester
       points = hits = clicks = 0;
       label4.Text = "0";
 
+      game.balls.Clear();
+
       panel1.Visible = false;
+
+      timer.Start();
+      timeTimer.Start();
+      generationTimer.Start();
 
       Invalidate();
     }

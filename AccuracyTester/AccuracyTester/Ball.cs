@@ -18,11 +18,11 @@ namespace AccuracyTester
 
     public string genString;
 
-    public Ball(Point position, Random random)
+    public Ball(Point position, Random random, int min, int max)
     {
       this.position = position;
       color = Color.Green;
-      radius = random.Next(40, 81);
+      radius = random.Next(min, max + 1);
       AssignPoints();
 
       hit = false;
