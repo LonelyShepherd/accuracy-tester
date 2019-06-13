@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace AccuracyTester
 {
@@ -21,6 +22,7 @@ namespace AccuracyTester
     public char letter;
 
     public string genString;
+      
 
     public LetterBall(Point position, Random random)
     {
@@ -33,6 +35,8 @@ namespace AccuracyTester
       hit = false;
 
       genString = GenerateLetter().ToString();
+        
+      
     }
 
     void AssignPoints()
@@ -53,10 +57,10 @@ namespace AccuracyTester
     public char GenerateLetter()
     {
       Random random = new Random();
-      letter = (char)random.Next(97, 123);
+      letter = (char)random.Next(97, 123);    
+       return letter;     
+     }
 
-      return letter;
-    }
 
     public LetterBall(Point position, int radius, Color color)
     {
@@ -94,6 +98,7 @@ namespace AccuracyTester
       font = new Font("Ariel", 20);
       Brush fontcolor = new SolidBrush(Color.White);
       SizeF size = g.MeasureString(genString, font);
+
       g.DrawString(genString, font, fontcolor, position.X - size.Width / 2, position.Y - size.Height / 2);
 
       brush.Dispose();

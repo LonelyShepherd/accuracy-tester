@@ -22,6 +22,7 @@ namespace AccuracyTester
       random = new Random();
       balls = new List<LetterBall>();
       points = 0;
+   
     }
 
     public void Generate()

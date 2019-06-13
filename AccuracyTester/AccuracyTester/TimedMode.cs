@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AccuracyTester
 {
@@ -17,13 +19,15 @@ namespace AccuracyTester
     private int clicks;
     private int hits;
 
+
+
     public TimedMode()
     {
       InitializeComponent();
       game = new Game(Width, Height);
       
       timer = new Timer();
-      timer.Interval = 65;
+      timer.Interval = 70;
       timer.Tick += new EventHandler(timer_Tick);
 
       timeTimer = new Timer();
@@ -31,7 +35,7 @@ namespace AccuracyTester
       timeTimer.Tick += new EventHandler(elapsed);
 
       generationTimer = new Timer();
-      generationTimer.Interval = 500;
+      generationTimer.Interval = 400;
       generationTimer.Tick += new EventHandler(generate);
 
       points = 0;
@@ -119,7 +123,7 @@ namespace AccuracyTester
       e.Graphics.Clear(Color.White);
       game.Draw(e.Graphics);
 
-      SelectCorrect(e.Graphics);
+            SelectCorrect(e.Graphics);
     }
 
     private void TimedMode_MouseClick(object sender, MouseEventArgs e)
@@ -184,5 +188,15 @@ namespace AccuracyTester
     {
       Close();
     }
-  }
+
+        private void saveGame_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void loadGame_Click(object sender, EventArgs e)
+        {
+           
+        }
+    }
 }

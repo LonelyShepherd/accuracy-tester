@@ -1,6 +1,6 @@
 ﻿namespace AccuracyTester
 {
-    partial class TimedMode
+    partial class VersusComputer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.givenWord = new System.Windows.Forms.Label();
+            this.givenWordCPU = new System.Windows.Forms.Label();
+            this.givenWordPlayer = new System.Windows.Forms.Label();
+            this.yourWord = new System.Windows.Forms.Label();
+            this.computerWord = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,67 +46,58 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // givenWordCPU
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(809, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "TIME";
+            this.givenWordCPU.AutoSize = true;
+            this.givenWordCPU.BackColor = System.Drawing.Color.Transparent;
+            this.givenWordCPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.givenWordCPU.Location = new System.Drawing.Point(255, 390);
+            this.givenWordCPU.Name = "givenWordCPU";
+            this.givenWordCPU.Size = new System.Drawing.Size(263, 31);
+            this.givenWordCPU.TabIndex = 0;
+            this.givenWordCPU.Text = "COMPUTER WORD";
+            this.givenWordCPU.Paint += new System.Windows.Forms.PaintEventHandler(this.givenWordCPU_Paint);
             // 
-            // label3
+            // givenWordPlayer
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(795, 193);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "POINTS";
+            this.givenWordPlayer.AutoSize = true;
+            this.givenWordPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.givenWordPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.givenWordPlayer.Location = new System.Drawing.Point(286, 35);
+            this.givenWordPlayer.Name = "givenWordPlayer";
+            this.givenWordPlayer.Size = new System.Drawing.Size(214, 31);
+            this.givenWordPlayer.TabIndex = 1;
+            this.givenWordPlayer.Text = "PLAYER WORD";
             // 
-            // label2
+            // yourWord
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(742, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "00:00";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.yourWord.AutoSize = true;
+            this.yourWord.BackColor = System.Drawing.Color.Transparent;
+            this.yourWord.Location = new System.Drawing.Point(371, 9);
+            this.yourWord.Name = "yourWord";
+            this.yourWord.Size = new System.Drawing.Size(58, 13);
+            this.yourWord.TabIndex = 2;
+            this.yourWord.Text = "Your word:";
             // 
-            // label4
+            // computerWord
             // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(742, 215);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 23);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "0";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // givenWord
-            // 
-            this.givenWord.AutoSize = true;
-            this.givenWord.BackColor = System.Drawing.Color.Transparent;
-            this.givenWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.givenWord.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.givenWord.Location = new System.Drawing.Point(348, 9);
-            this.givenWord.Name = "givenWord";
-            this.givenWord.Size = new System.Drawing.Size(192, 31);
-            this.givenWord.TabIndex = 1;
-            this.givenWord.Text = "GIVEN WORD";
-            this.givenWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.computerWord.AutoSize = true;
+            this.computerWord.BackColor = System.Drawing.Color.Transparent;
+            this.computerWord.Location = new System.Drawing.Point(341, 377);
+            this.computerWord.Name = "computerWord";
+            this.computerWord.Size = new System.Drawing.Size(88, 13);
+            this.computerWord.TabIndex = 3;
+            this.computerWord.Text = "Computer\'s word:";
             // 
             // panel1
             // 
@@ -120,8 +110,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(848, 492);
-            this.panel1.TabIndex = 10;
+            this.panel1.Size = new System.Drawing.Size(767, 430);
+            this.panel1.TabIndex = 11;
             this.panel1.Visible = false;
             // 
             // button2
@@ -132,7 +122,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Quit";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -142,7 +132,8 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Restart";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
             // 
             // panel4
             // 
@@ -256,26 +247,67 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Time";
             // 
-            // TimedMode
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(655, 232);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 23);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "0";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(655, 164);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "00:00";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(708, 210);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "POINTS";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(722, 144);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "TIME";
+            // 
+            // VersusComputer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 492);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.givenWord);
+            this.ClientSize = new System.Drawing.Size(767, 430);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "TimedMode";
-            this.ShowInTaskbar = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Accuracy Tester - Word Scrambler";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TimedMode_Paint);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TimedMode_MouseClick);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.computerWord);
+            this.Controls.Add(this.yourWord);
+            this.Controls.Add(this.givenWordPlayer);
+            this.Controls.Add(this.givenWordCPU);
+            this.Name = "VersusComputer";
+            this.Text = "VersusComputer";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.VersusComputer_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.VersusComputer_MouseClick_1);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -289,24 +321,28 @@
         }
 
         #endregion
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.Label label4;
-    private System.Windows.Forms.Label givenWord;
-    private System.Windows.Forms.Panel panel1;
-    private System.Windows.Forms.Panel panel3;
-    private System.Windows.Forms.Label label10;
-    private System.Windows.Forms.Label label6;
-    private System.Windows.Forms.Panel panel4;
-    private System.Windows.Forms.Label label14;
-    private System.Windows.Forms.Label label13;
-    private System.Windows.Forms.Label label12;
-    private System.Windows.Forms.Label label11;
-    private System.Windows.Forms.Button button2;
-    private System.Windows.Forms.Button button1;
-    private System.Windows.Forms.Panel panel2;
-    private System.Windows.Forms.Label label7;
-    private System.Windows.Forms.Label label5;
+
+        private System.Windows.Forms.Label givenWordCPU;
+        private System.Windows.Forms.Label givenWordPlayer;
+        private System.Windows.Forms.Label yourWord;
+        private System.Windows.Forms.Label computerWord;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

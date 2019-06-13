@@ -13,9 +13,11 @@ namespace AccuracyTester
 {
     public partial class Form1 : Form
     {
+       
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void getWord_Click(object sender, EventArgs e)
@@ -31,7 +33,6 @@ namespace AccuracyTester
         private void timedMode_Click(object sender, EventArgs e)
         {
             TimedMode timedMode = new TimedMode();
-
             if (timedMode.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
               
@@ -44,5 +45,11 @@ namespace AccuracyTester
 
       def.ShowDialog();
     }
-  }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            VersusComputer versusComputer = new VersusComputer();
+            versusComputer.ShowDialog();
+        }
+    }
 }

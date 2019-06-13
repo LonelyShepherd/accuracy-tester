@@ -70,6 +70,12 @@
     <Compile Include="TimedMode.Designer.cs">
       <DependentUpon>TimedMode.cs</DependentUpon>
     </Compile>
+    <Compile Include="VersusComputer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VersusComputer.Designer.cs">
+      <DependentUpon>VersusComputer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Default.resx">
       <DependentUpon>Default.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="TimedMode.resx">
       <DependentUpon>TimedMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VersusComputer.resx">
+      <DependentUpon>VersusComputer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
