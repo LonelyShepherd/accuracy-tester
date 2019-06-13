@@ -50,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.cpuSolving = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,7 +62,7 @@
             this.givenWordCPU.AutoSize = true;
             this.givenWordCPU.BackColor = System.Drawing.Color.Transparent;
             this.givenWordCPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.givenWordCPU.Location = new System.Drawing.Point(255, 390);
+            this.givenWordCPU.Location = new System.Drawing.Point(257, 369);
             this.givenWordCPU.Name = "givenWordCPU";
             this.givenWordCPU.Size = new System.Drawing.Size(263, 31);
             this.givenWordCPU.TabIndex = 0;
@@ -93,7 +94,7 @@
             // 
             this.computerWord.AutoSize = true;
             this.computerWord.BackColor = System.Drawing.Color.Transparent;
-            this.computerWord.Location = new System.Drawing.Point(341, 377);
+            this.computerWord.Location = new System.Drawing.Point(341, 355);
             this.computerWord.Name = "computerWord";
             this.computerWord.Size = new System.Drawing.Size(88, 13);
             this.computerWord.TabIndex = 3;
@@ -290,20 +291,30 @@
             this.label9.TabIndex = 12;
             this.label9.Text = "TIME";
             // 
+            // cpuSolving
+            // 
+            this.cpuSolving.AutoSize = true;
+            this.cpuSolving.Location = new System.Drawing.Point(260, 407);
+            this.cpuSolving.Name = "cpuSolving";
+            this.cpuSolving.Size = new System.Drawing.Size(248, 13);
+            this.cpuSolving.TabIndex = 16;
+            this.cpuSolving.Text = "COMPUTER WAITING FOR YOUR FIRST MOVE ";
+            // 
             // VersusComputer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 430);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.computerWord);
             this.Controls.Add(this.yourWord);
             this.Controls.Add(this.givenWordPlayer);
             this.Controls.Add(this.givenWordCPU);
+            this.Controls.Add(this.cpuSolving);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
             this.Name = "VersusComputer";
             this.Text = "VersusComputer";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.VersusComputer_Paint);
@@ -344,5 +355,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label cpuSolving;
     }
 }

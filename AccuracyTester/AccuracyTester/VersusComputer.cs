@@ -23,6 +23,11 @@ namespace AccuracyTester
         private int clicks;
         private int hits;
 
+        private Timer sleepNow;
+        private Timer sleepNow1;
+        private Timer sleepNow2;
+        private Timer sleepNow3;
+
 
         private char letter;
         private string wordCPU;
@@ -44,9 +49,9 @@ namespace AccuracyTester
             generationTimer.Interval = 400;
             generationTimer.Tick += new EventHandler(generate);
 
-            
+           
 
-            points = 0;
+        points = 0;
             clicks = 0;
             hits = 0;
 
@@ -54,16 +59,207 @@ namespace AccuracyTester
 
             word = "";
             wordCPU = "";
-
+          
             timer.Start();
             timeTimer.Start();
             generationTimer.Start();
 
             GenerateWordCPU();
             GenerateWordPlayer();
+
+            InitTimer();
+            InitTimer1();
+            InitTimer2();
+            InitTimer3();
+
+            DoubleBuffered = true;
         }
 
-     
+        public void InitTimer()
+        {
+            sleepNow = new Timer();
+            sleepNow.Tick += new EventHandler(pleaseWait);
+            sleepNow.Interval = 5000; 
+            sleepNow.Start();
+        }
+
+        public void InitTimer1()
+        {
+            sleepNow1= new Timer();
+            sleepNow1.Tick += new EventHandler(PleaseWait1);
+            sleepNow1.Interval = 10000;
+            sleepNow1.Start();
+        }
+
+        public void InitTimer2()
+        {
+            sleepNow2 = new Timer();
+            sleepNow2.Tick += new EventHandler(PleaseWait2);
+            sleepNow2.Interval = 16000;
+            sleepNow2.Start();
+        }
+
+        public void InitTimer3()
+        {
+            sleepNow3 = new Timer();
+            sleepNow3.Tick += new EventHandler(PleaseWait3);
+            sleepNow3.Interval = 35000;
+            sleepNow3.Start();
+        }
+
+        private void PleaseWait3(object sender, EventArgs e)
+        {
+            char[] letters = givenWordCPU.Text.ToCharArray();
+            Random random = new Random();
+            char guess = (char)random.Next(97, 123);
+
+            while (true)
+            {
+                if (guess == letters[8])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+            while (true)
+            {
+                if (guess == letters[9])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+            sleepNow3.Stop();
+        }
+
+        void pleaseWait(object sender, EventArgs e)
+        {
+            
+            char[] letters = givenWordCPU.Text.ToCharArray();
+            Random random = new Random();
+            char guess = (char)random.Next(97, 123);
+            cpuSolving.Text = "";
+
+            while (true)
+            {
+                if (guess == letters[0])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                Console.WriteLine(guess);
+                guess = (char)random.Next(97, 123);
+
+            }
+
+            while (true)
+            {
+                if (guess == letters[1])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+
+            }
+
+            sleepNow.Stop();
+        }
+
+        void PleaseWait1(object sender, EventArgs e)
+        {
+            char[] letters = givenWordCPU.Text.ToCharArray();
+            Random random = new Random();
+            char guess = (char)random.Next(97, 123);
+           
+
+            while (true)
+            {
+                if (guess == letters[2])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+
+            while (true)
+            {
+                if (guess == letters[3])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+
+            while (true)
+            {
+                if (guess == letters[4])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+
+            sleepNow1.Stop();
+        }
+
+        void PleaseWait2(object sender, EventArgs e)
+        {
+            char[] letters = givenWordCPU.Text.ToCharArray();
+            Random random = new Random();
+            char guess = (char)random.Next(97, 123);
+
+
+            while (true)
+            {
+                if (guess == letters[5])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+
+            while (true)
+            {
+                if (guess == letters[6])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+
+            while (true)
+            {
+                if (guess == letters[7])
+                {
+                    Console.WriteLine("I guessed " + guess);
+                    cpuSolving.Text += guess.ToString();
+                    break;
+                }
+                guess = (char)random.Next(97, 123);
+            }
+
+            sleepNow2.Stop();
+        }
+
+
+
 
         void elapsed(object sender, EventArgs e)
         {
@@ -75,6 +271,11 @@ namespace AccuracyTester
         void generate(object sender, EventArgs e)
         {
             game.Generate();
+        }
+
+        void passed(object sender, EventArgs e)
+        {
+            var elapsed = DateTime.Now - now;
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -123,9 +324,10 @@ namespace AccuracyTester
 
             word = "";
             GenerateWordPlayer();
+            GenerateWordCPU();
             points = hits = clicks = 0;
             label4.Text = "0";
-
+            cpuSolving.Text = "";
             game.balls.Clear();
 
             panel1.Visible = false;
@@ -133,13 +335,13 @@ namespace AccuracyTester
             timer.Start();
             timeTimer.Start();
             generationTimer.Start();
+           
 
             Invalidate();
         }
 
 
        
-        /// /////////////////////// CPU ////////////////////////////////////////
         
         public void SelectCorrectCPU(Graphics g)
         {
@@ -157,19 +359,7 @@ namespace AccuracyTester
 
         }
        
-
-      
-
-        public char ComputerGuessing()
-        {
-            Random random = new Random();
-            letter = (char)random.Next(97, 123);
-            return letter;
-        }
-
-
-
-
+       
         void GenerateWordPlayer()
         {
             WebClient webClient = new WebClient();
@@ -188,7 +378,15 @@ namespace AccuracyTester
             string[] words = wordlist.Split('\n');
 
             Random random = new Random();
+
             givenWordCPU.Text = words[random.Next(0, words.Length - 1)];
+
+           while(givenWordCPU.Text.Length != 10)
+            {
+                givenWordCPU.Text = words[random.Next(0, words.Length - 1)];
+            }
+
+          
             givenWordCPU.Left = (ClientSize.Width - givenWordCPU.Size.Width) / 2;
         }
 
@@ -209,6 +407,7 @@ namespace AccuracyTester
         {
             if (e.Button == MouseButtons.Left)
             {
+                
                 clicks++;
 
                 foreach (var it in game.balls)
