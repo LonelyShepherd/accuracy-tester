@@ -79,7 +79,7 @@ namespace AccuracyTester
         {
             sleepNow = new Timer();
             sleepNow.Tick += new EventHandler(pleaseWait);
-            sleepNow.Interval = 5000; 
+            sleepNow.Interval = 13000; 
             sleepNow.Start();
         }
 
@@ -87,7 +87,7 @@ namespace AccuracyTester
         {
             sleepNow1= new Timer();
             sleepNow1.Tick += new EventHandler(PleaseWait1);
-            sleepNow1.Interval = 10000;
+            sleepNow1.Interval = 25000;
             sleepNow1.Start();
         }
 
@@ -95,7 +95,7 @@ namespace AccuracyTester
         {
             sleepNow2 = new Timer();
             sleepNow2.Tick += new EventHandler(PleaseWait2);
-            sleepNow2.Interval = 16000;
+            sleepNow2.Interval = 43000;
             sleepNow2.Start();
         }
 
@@ -103,7 +103,7 @@ namespace AccuracyTester
         {
             sleepNow3 = new Timer();
             sleepNow3.Tick += new EventHandler(PleaseWait3);
-            sleepNow3.Interval = 35000;
+            sleepNow3.Interval = 60000;
             sleepNow3.Start();
         }
 
@@ -273,15 +273,17 @@ namespace AccuracyTester
             game.Generate();
         }
 
-        void passed(object sender, EventArgs e)
-        {
-            var elapsed = DateTime.Now - now;
-        }
-
         void timer_Tick(object sender, EventArgs e)
         {
             game.Tick();
-   
+
+            if (givenWordCPU.Text.Equals(cpuSolving.Text))
+            {
+                winMessage.Text = "COMPUTER WON!\nBut your stats look great!";
+                winMessage.BackColor = Color.Red;
+                ShowStats();
+            }
+
             Invalidate(true);
         }
 
@@ -291,11 +293,15 @@ namespace AccuracyTester
             timeTimer.Stop();
             generationTimer.Stop();
 
+
+
             panel1.Visible = true;
             label10.Text = label4.Text;
             label7.Text = label3.Text;
             label13.Text = string.Format("{0}/{1}", hits, clicks);
             label14.Text = string.Format("{0:0.##}%", (hits * 100) / (clicks * 1.0));
+
+           
         }
 
 
@@ -304,6 +310,8 @@ namespace AccuracyTester
             if (!givenWordPlayer.Text.StartsWith(word))
             {
                 ShowStats();
+                winMessage.Text = "Wrong letter, you lost!";
+                winMessage.BackColor = Color.Red;
                 return;
             }
 
@@ -314,7 +322,12 @@ namespace AccuracyTester
             brush.Dispose();
 
             if (givenWordPlayer.Text == word)
+            {
                 ShowStats();
+                winMessage.Text = "YOU WON!";
+                winMessage.BackColor = Color.Green;
+            }
+          
         }
 
         private void Restart()
@@ -335,7 +348,12 @@ namespace AccuracyTester
             timer.Start();
             timeTimer.Start();
             generationTimer.Start();
-           
+
+            InitTimer();
+            InitTimer1();
+            InitTimer2();
+            InitTimer3();
+
 
             Invalidate();
         }
@@ -350,13 +368,6 @@ namespace AccuracyTester
             g.FillRectangle(brush, givenWordCPU.Location.X + 5, givenWordCPU.Location.Y, size.Width - 9, givenWordCPU.Height);
 
             brush.Dispose();
-
-            if (givenWordCPU.Text == wordCPU)
-            {
-                ShowStats();
-                Console.WriteLine("CPU WINS");
-            }
-
         }
        
        

@@ -34,7 +34,6 @@
             this.computerWord = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cpuSolving = new System.Windows.Forms.Label();
+            this.winMessage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,11 +74,12 @@
             this.givenWordPlayer.AutoSize = true;
             this.givenWordPlayer.BackColor = System.Drawing.Color.Transparent;
             this.givenWordPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.givenWordPlayer.Location = new System.Drawing.Point(286, 35);
+            this.givenWordPlayer.Location = new System.Drawing.Point(338, 22);
             this.givenWordPlayer.Name = "givenWordPlayer";
             this.givenWordPlayer.Size = new System.Drawing.Size(214, 31);
             this.givenWordPlayer.TabIndex = 1;
             this.givenWordPlayer.Text = "PLAYER WORD";
+            this.givenWordPlayer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // yourWord
             // 
@@ -103,8 +104,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.winMessage);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -117,24 +118,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(430, 365);
+            this.button2.Location = new System.Drawing.Point(374, 371);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
             this.button2.Text = "Quit";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(349, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Restart";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            this.button1.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
             // 
             // panel4
             // 
@@ -294,11 +284,25 @@
             // cpuSolving
             // 
             this.cpuSolving.AutoSize = true;
-            this.cpuSolving.Location = new System.Drawing.Point(260, 407);
+            this.cpuSolving.BackColor = System.Drawing.Color.Transparent;
+            this.cpuSolving.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpuSolving.Location = new System.Drawing.Point(350, 404);
             this.cpuSolving.Name = "cpuSolving";
-            this.cpuSolving.Size = new System.Drawing.Size(248, 13);
+            this.cpuSolving.Size = new System.Drawing.Size(154, 17);
             this.cpuSolving.TabIndex = 16;
-            this.cpuSolving.Text = "COMPUTER WAITING FOR YOUR FIRST MOVE ";
+            this.cpuSolving.Text = "Computer solving here ";
+            this.cpuSolving.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // winMessage
+            // 
+            this.winMessage.AutoSize = true;
+            this.winMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winMessage.Location = new System.Drawing.Point(277, 22);
+            this.winMessage.Name = "winMessage";
+            this.winMessage.Size = new System.Drawing.Size(243, 31);
+            this.winMessage.TabIndex = 5;
+            this.winMessage.Text = "CPU/Player wins!";
+            this.winMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // VersusComputer
             // 
@@ -320,6 +324,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.VersusComputer_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.VersusComputer_MouseClick_1);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -339,7 +344,6 @@
         private System.Windows.Forms.Label computerWord;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -356,5 +360,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label cpuSolving;
+        private System.Windows.Forms.Label winMessage;
     }
 }
