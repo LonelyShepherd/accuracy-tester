@@ -28,122 +28,125 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.timedMode = new System.Windows.Forms.Button();
-            this.freeMode = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(228, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Modes:";
-            // 
-            // timedMode
-            // 
-            this.timedMode.BackColor = System.Drawing.SystemColors.Info;
-            this.timedMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timedMode.Location = new System.Drawing.Point(176, 146);
-            this.timedMode.Name = "timedMode";
-            this.timedMode.Size = new System.Drawing.Size(166, 41);
-            this.timedMode.TabIndex = 2;
-            this.timedMode.Text = "Letter chase";
-            this.timedMode.UseVisualStyleBackColor = false;
-            this.timedMode.Click += new System.EventHandler(this.timedMode_Click);
-            // 
-            // freeMode
-            // 
-            this.freeMode.BackColor = System.Drawing.Color.Honeydew;
-            this.freeMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.freeMode.Location = new System.Drawing.Point(176, 257);
-            this.freeMode.Name = "freeMode";
-            this.freeMode.Size = new System.Drawing.Size(166, 41);
-            this.freeMode.TabIndex = 3;
-            this.freeMode.Text = "Test your perception";
-            this.freeMode.UseVisualStyleBackColor = false;
-            this.freeMode.Click += new System.EventHandler(this.FreeMode_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Azure;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(176, 372);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(166, 41);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Versus Computer";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(128, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(267, 48);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Word Accuracy";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(173, 199);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 39);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Click all the circles\r\nbefore the time runs out\r\nyou can also choose your difficu" +
+      this.label1 = new System.Windows.Forms.Label();
+      this.timedMode = new System.Windows.Forms.Button();
+      this.freeMode = new System.Windows.Forms.Button();
+      this.button3 = new System.Windows.Forms.Button();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label5 = new System.Windows.Forms.Label();
+      this.label6 = new System.Windows.Forms.Label();
+      this.label4 = new System.Windows.Forms.Label();
+      this.SuspendLayout();
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label1.Location = new System.Drawing.Point(228, 75);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(48, 13);
+      this.label1.TabIndex = 1;
+      this.label1.Text = "Modes:";
+      // 
+      // timedMode
+      // 
+      this.timedMode.BackColor = System.Drawing.Color.Azure;
+      this.timedMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.timedMode.Location = new System.Drawing.Point(176, 146);
+      this.timedMode.Name = "timedMode";
+      this.timedMode.Size = new System.Drawing.Size(166, 41);
+      this.timedMode.TabIndex = 2;
+      this.timedMode.Text = "Letter chase";
+      this.timedMode.UseVisualStyleBackColor = false;
+      this.timedMode.Click += new System.EventHandler(this.timedMode_Click);
+      // 
+      // freeMode
+      // 
+      this.freeMode.BackColor = System.Drawing.Color.Azure;
+      this.freeMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.freeMode.Location = new System.Drawing.Point(176, 257);
+      this.freeMode.Name = "freeMode";
+      this.freeMode.Size = new System.Drawing.Size(166, 41);
+      this.freeMode.TabIndex = 3;
+      this.freeMode.Text = "Test your perception";
+      this.freeMode.UseVisualStyleBackColor = false;
+      this.freeMode.Click += new System.EventHandler(this.FreeMode_Click);
+      // 
+      // button3
+      // 
+      this.button3.BackColor = System.Drawing.Color.Azure;
+      this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.button3.Location = new System.Drawing.Point(176, 372);
+      this.button3.Name = "button3";
+      this.button3.Size = new System.Drawing.Size(166, 41);
+      this.button3.TabIndex = 4;
+      this.button3.Text = "Versus Computer";
+      this.button3.UseVisualStyleBackColor = false;
+      this.button3.Click += new System.EventHandler(this.button3_Click);
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label2.Location = new System.Drawing.Point(128, 9);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(267, 48);
+      this.label2.TabIndex = 6;
+      this.label2.Text = "Word Accuracy";
+      // 
+      // label5
+      // 
+      this.label5.AutoSize = true;
+      this.label5.Location = new System.Drawing.Point(173, 199);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(169, 39);
+      this.label5.TabIndex = 10;
+      this.label5.Text = "Click all the circles\r\nbefore the time runs out\r\nyou can also choose your difficu" +
     "lty";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(186, 318);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 39);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Test your word building skills \r\nand try to finish the given word \r\nbefore the co" +
+      this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+      // 
+      // label6
+      // 
+      this.label6.AutoSize = true;
+      this.label6.Location = new System.Drawing.Point(186, 318);
+      this.label6.Name = "label6";
+      this.label6.Size = new System.Drawing.Size(154, 39);
+      this.label6.TabIndex = 11;
+      this.label6.Text = "Test your word building skills \r\nand try to finish the given word \r\nbefore the co" +
     "mputer does";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(186, 106);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 26);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Try to complete the given\r\nword without missing a letter\r\n";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(519, 437);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.freeMode);
-            this.Controls.Add(this.timedMode);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+      this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+      // 
+      // label4
+      // 
+      this.label4.AutoSize = true;
+      this.label4.Location = new System.Drawing.Point(186, 106);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(139, 26);
+      this.label4.TabIndex = 12;
+      this.label4.Text = "Try to complete the given\r\nword without missing a letter\r\n";
+      this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+      // 
+      // Form1
+      // 
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.BackColor = System.Drawing.SystemColors.Window;
+      this.ClientSize = new System.Drawing.Size(519, 437);
+      this.Controls.Add(this.label4);
+      this.Controls.Add(this.label6);
+      this.Controls.Add(this.label5);
+      this.Controls.Add(this.label2);
+      this.Controls.Add(this.button3);
+      this.Controls.Add(this.freeMode);
+      this.Controls.Add(this.timedMode);
+      this.Controls.Add(this.label1);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+      this.MaximizeBox = false;
+      this.Name = "Form1";
+      this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+      this.Text = "Accuracy Tester";
+      this.ResumeLayout(false);
+      this.PerformLayout();
 
         }
 

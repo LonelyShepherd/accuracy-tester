@@ -674,6 +674,8 @@
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "Default";
+      this.ShowInTaskbar = false;
+      this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
       this.Text = "Accuracy Tester";
       this.Paint += new System.Windows.Forms.PaintEventHandler(this.Default_Paint);
       this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Default_MouseClick);
