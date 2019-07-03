@@ -1,3 +1,2 @@
 # accuracy-tester
-VP proekt 
-throbbing
+Dokumentacija test
