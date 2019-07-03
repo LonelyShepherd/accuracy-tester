@@ -148,7 +148,7 @@ namespace AccuracyTester
       {
         if (guess == letters[0])
         {
-          Console.WriteLine("I guessed " + guess);
+          Console.WriteLine("I guessed " + guess);               
           wordCPU += guess.ToString();
           break;
         }
@@ -292,6 +292,10 @@ namespace AccuracyTester
       timer.Stop();
       timeTimer.Stop();
       generationTimer.Stop();
+            sleepNow.Stop();
+            sleepNow1.Stop();
+            sleepNow2.Stop();
+            sleepNow3.Stop();
 
       panel1.Visible = true;
       label10.Text = label4.Text;
@@ -349,7 +353,6 @@ namespace AccuracyTester
       InitTimer1();
       InitTimer2();
       InitTimer3();
-
 
       Invalidate();
     }
